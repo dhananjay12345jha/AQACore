@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>storefront.aqa</groupId>
+    <artifactId>core</artifactId>
+    <version>3.0.5</version>
+    <name>storefront.aqa.core</name>
+
+    <properties>
+        <!--Character encoding-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!--Plugins-->
+        <build.plugins.plugin.version>3.8.1</build.plugins.plugin.version>
+        <!--Dependencies-->
+        <rest-assured.version>4.0.0</rest-assured.version>
+        <jackson-annotations.version>2.10.0</jackson-annotations.version>
+        <mongo-java-driver.version>3.10.2</mongo-java-driver.version>
+        <maven.compiler.version>3.8.1</maven.compiler.version>
+        <java.version>11</java.version>
+        <selenium_version>4.0.0-beta-3</selenium_version>
+        <appium_version>7.2.0</appium_version>
+        <drivermanager_version>3.8.1</drivermanager_version>
+        <slf4j.version>1.8.0-beta4</slf4j.version>
+        <shadeplugin_version>3.2.1</shadeplugin_version>
+        <spring_version>5.1.6.RELEASE</spring_version>
+        <junit_version>4.12</junit_version>
+        <saucerest.version>1.0.44</saucerest.version>
+        <jsonpath_version>2.4.0</jsonpath_version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <allure_version>2.13.2</allure_version>
+        <aspectj_version>1.9.4</aspectj_version>
+        <apachecommons_version>3.9</apachecommons_version>
+        <shadeplugin_version>3.2.1</shadeplugin_version>
+        <commons.version>2.6</commons.version>
+        <winium-version>0.1.0-1</winium-version>
+        <apache-common-version>3.9</apache-common-version>
+        <tess4j_version>4.4.0</tess4j_version>
+        <testng_version>6.14.3</testng_version>
+        <spring-version>5.1.6.RELEASE</spring-version>
+        <lombok-version>1.18.20</lombok-version>
+        <selenium-server-version>4.0.0-alpha-2</selenium-server-version>
+    </properties>
+
+    <dependencies>
+        <!-- Selenium -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-server</artifactId>
+            <version>${selenium-server-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium_version}</version>
+        </dependency>
+
+        <!-- Appium -->
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>${appium_version}</version>
+        </dependency>
+<!--        &lt;!&ndash; Spring Dependency Injection &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework</groupId>-->
+<!--            <artifactId>spring-context</artifactId>-->
+<!--            <version>${spring_version}</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework</groupId>-->
+<!--            <artifactId>spring-test</artifactId>-->
+<!--            <version>${spring_version}</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework</groupId>-->
+<!--            <artifactId>spring-tx</artifactId>-->
+<!--            <version>${spring_version}</version>-->
+<!--        </dependency>-->
+<!--         Driver Manager to download the dependencies at run time-->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${drivermanager_version}</version>
+        </dependency>
+        <!-- Logger to log info and errors -->
+        <dependency>
+            <groupId>com.saucelabs</groupId>
+            <artifactId>saucerest</artifactId>
+            <version>${saucerest.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+        <dependency>
+            <groupId>ru.yandex.qatools.ashot</groupId>
+            <artifactId>ashot</artifactId>
+            <version>1.5.4</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.seleniumhq.selenium</groupId>
+                    <artifactId>selenium-remote-driver</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-io</groupId>
+                    <artifactId>commons-io</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.hamcrest</groupId>
+                    <artifactId>hamcrest-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.hamcrest</groupId>
+                    <artifactId>hamcrest-library</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.28</version>
+        </dependency>
+        <!-- Gson -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.5</version>
+        </dependency>
+        <!-- Json Parser -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.12.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <version>${jsonpath_version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>${mongo-java-driver.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.deque</groupId>
+            <artifactId>axe-selenium</artifactId>
+            <version>3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>fontbox</artifactId>
+            <version>2.0.19</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>2.0.19</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.13.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.tess4j</groupId>
+            <artifactId>tess4j</artifactId>
+            <version>4.3.0</version>
+        </dependency>
+        <!-- Allure reporter -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-cucumber5-jvm</artifactId>
+            <version>${allure_version}</version>
+        </dependency>
+        <!-- AspectJ -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj_version}</version>
+        </dependency>
+        <!-- Apache Commons -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.9</version>
+        </dependency>
+        <!-- Logger to log info and errors -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.8.0-beta4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.8.0-beta4</version>
+        </dependency>
+        <!-- Spring Dependency Injection -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.1.6.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.1.6.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>5.1.6.RELEASE</version>
+        </dependency>
+        <!-- testng -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng_version}</version>
+            <scope>compile</scope>
+        </dependency>
+<!--        &lt;!&ndash; Selenium &ndash;&gt;
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-server</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>-->
+        <!-- Logger to log info and errors -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <!-- Winium -->
+        <dependency>
+            <groupId>com.github.2gis.winium</groupId>
+            <artifactId>winium-webdriver</artifactId>
+            <version>${winium-version}</version>
+        </dependency>
+       <!-- &lt;!&ndash; Sikulix API &ndash;&gt;
+        <dependency>
+            <groupId>com.sikulix</groupId>
+            <artifactId>sikulixapi</artifactId>
+            <version>${sikulix-version}</version>
+        </dependency>
+        &lt;!&ndash; https://mvnrepository.com/artifact/org.sikuli/sikuli-core &ndash;&gt;
+        <dependency>
+            <groupId>org.sikuli</groupId>
+            <artifactId>sikuli-core</artifactId>
+            <version>1.1.3</version>
+        </dependency>
+
+
+        &lt;!&ndash; https://mvnrepository.com/artifact/org.sikuli/sikuli-api &ndash;&gt;
+        <dependency>
+            <groupId>org.sikuli</groupId>
+            <artifactId>sikuli-api</artifactId>
+            <version>${sikuli-version}</version>
+        </dependency>-->
+
+        <!-- Sikuli OCR -->
+<!--        <dependency>-->
+<!--            <groupId>net.sourceforge.tess4j</groupId>-->
+<!--            <artifactId>tess4j</artifactId>-->
+<!--            <version>${tess4j_version}</version>-->
+<!--        </dependency>-->
+        <!-- Commons IO -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>${commons.version}</version>
+        </dependency>
+        <!-- Apache Commons -->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.commons</groupId>-->
+<!--            <artifactId>commons-lang3</artifactId>-->
+<!--            <version>${apache-common-version}</version>-->
+<!--        </dependency>-->
+        <!-- Spring Core -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok-version}</version>
+        </dependency>
+
+        <!-- Selenium DevTools -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-devtools-v91</artifactId>
+            <version>${selenium_version}</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.version}</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <configuration>
+                    <mainClass>com.automation.core.allure.Bootify</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <repositories>
+<!--        <repository>-->
+<!--            <id>central</id>-->
+<!--            <url>http://<artifactoryIP>/artifactory/core_Framework</url>-->
+<!--        </repository>-->
+
+        <repository>
+            <id>central</id>
+            <url>https://repo1.maven.org/maven2/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+</project>
